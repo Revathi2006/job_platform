@@ -1,0 +1,185 @@
+/* Employer dashboard */
+.sh-employer .sh-dash-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  flex-wrap: wrap;
+}
+
+.sh-employer .sh-dash-kpis {
+  margin-top: var(--sh-space-6);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sh-space-4);
+}
+
+.sh-dash-kpi-value {
+  font-size: 2.1rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  margin-top: 14px;
+}
+
+.sh-postjob {
+  margin-top: var(--sh-space-6);
+  overflow: hidden;
+}
+
+.sh-postjob-head {
+  display: grid;
+  gap: 6px;
+  margin-bottom: var(--sh-space-5);
+}
+
+.sh-postjob-form {
+  display: grid;
+  gap: var(--sh-space-5);
+}
+
+.sh-postjob-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sh-space-4);
+}
+
+.sh-postjob-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sh-section {
+  margin-top: var(--sh-space-7);
+}
+
+.sh-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: var(--sh-space-4);
+}
+
+.sh-dash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sh-space-5);
+}
+
+.sh-jobcard-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sh-jobcard-title {
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.sh-jobcard-company {
+  margin-top: 6px;
+  color: var(--sh-muted);
+  font-weight: 800;
+}
+
+.sh-jobcard-meta {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sh-jobcard-desc {
+  margin-top: 14px;
+  color: var(--sh-text-2);
+  font-weight: 650;
+  display: -webkit-box;
+  -webkit-line-clamp-: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sh-jobcard-foot {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sh-app-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sh-appcard-top {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.sh-appcard-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgb(var(--sh-primary-rgb) / 0.12);
+  border: 1px solid rgb(var(--sh-primary-rgb) / 0.2);
+  color: var(--sh-primary-ink);
+  font-weight: 950;
+}
+
+.sh-appcard-name {
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.sh-appcard-sub {
+  margin-top: 4px;
+  color: var(--sh-muted);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.sh-appcard-meta {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+  color: var(--sh-text-2);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.sh-appcard-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+  .sh-employer .sh-dash-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sh-dash-grid,
+  .sh-app-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .sh-postjob-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sh-dash-grid,
+  .sh-app-grid {
+    grid-template-columns: 1fr;
+  }
+}

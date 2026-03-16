@@ -1,0 +1,102 @@
+/* Application tracker */
+.sh-tracker-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  flex-wrap: wrap;
+}
+
+.sh-tracker-list {
+  display: grid;
+  gap: 12px;
+}
+
+.sh-tracker-item-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  flex-wrap: wrap;
+}
+
+.sh-tracker-title {
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.sh-tracker-sub {
+  margin-top: 6px;
+  color: var(--sh-muted);
+  font-weight: 800;
+}
+
+.sh-tracker-meta {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sh-tracker-empty {
+  text-align: center;
+  padding: var(--sh-space-7);
+}
+
+.sh-tracker-steps {
+  padding: 0 var(--sh-space-4) var(--sh-space-4);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.sh-step {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--sh-radius-md);
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sh-step-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid var(--sh-border);
+  background: white;
+}
+
+.sh-step-label {
+  font-weight: 850;
+  font-size: 0.9rem;
+  color: var(--sh-text-2);
+}
+
+.sh-step-done {
+  border-color: rgb(var(--sh-success-rgb) / 0.35);
+}
+.sh-step-done .sh-step-dot {
+  border-color: rgb(var(--sh-success-rgb) / 0.7);
+  background: rgb(var(--sh-success-rgb) / 0.25);
+}
+
+.sh-step-current {
+  border-color: rgb(var(--sh-primary-rgb) / 0.5);
+}
+.sh-step-current .sh-step-dot {
+  border-color: rgb(var(--sh-primary-rgb) / 0.9);
+  background: rgb(var(--sh-primary-rgb) / 0.25);
+}
+
+.sh-step-todo {
+  opacity: 0.75;
+}
+
+@media (max-width: 980px) {
+  .sh-tracker-steps {
+    grid-template-columns: 1fr;
+  }
+}

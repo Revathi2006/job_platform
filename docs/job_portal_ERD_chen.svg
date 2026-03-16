@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1400" viewBox="0 0 2400 1400">
+  <defs>
+    <style>
+      .title { font: 700 34px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 18px "Segoe UI", Arial, sans-serif; fill: #475569; }
+      .entity { fill: #ffffff; stroke: #1d4ed8; stroke-width: 3; rx: 14; ry: 14; }
+      .entityText { font: 800 22px "Segoe UI", Arial, sans-serif; fill: #1e3a8a; letter-spacing: 0.4px; }
+      .rel { fill: #fff7ed; stroke: #f59e0b; stroke-width: 3; }
+      .relText { font: 800 18px "Segoe UI", Arial, sans-serif; fill: #92400e; }
+      .attr { fill: #ffffff; stroke: rgba(15,23,42,0.22); stroke-width: 2.5; }
+      .attrText { font: 700 16px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .pk { text-decoration: underline; }
+      .link { stroke: rgba(15,23,42,0.55); stroke-width: 2.5; }
+      .linkDashed { stroke: rgba(15,23,42,0.45); stroke-width: 2.5; stroke-dasharray: 10 8; }
+      .card { font: 800 16px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .note { font: 650 14px "Segoe UI", Arial, sans-serif; fill: #475569; }
+    </style>
+  </defs>
+
+  <!-- Header -->
+  <text class="title" x="120" y="78">Job Portal ER Diagram (Chen Notation)</text>
+  <text class="subtitle" x="120" y="112">Entities (rectangles), Relationships (diamonds), Attributes (ovals) • Cardinality shown as 1 / N / 0..1</text>
+
+  <!-- ============ ENTITIES ============ -->
+  <!-- AUTHUSER (a_user) -->
+  <rect class="entity" x="140" y="520" width="300" height="84" />
+  <text class="entityText" x="290" y="572" text-anchor="middle">AUTHUSER (a_user)</text>
+
+  <!-- EMPLOYER -->
+  <rect class="entity" x="860" y="160" width="260" height="84" />
+  <text class="entityText" x="990" y="212" text-anchor="middle">EMPLOYER</text>
+
+  <!-- JOB -->
+  <rect class="entity" x="1560" y="160" width="260" height="84" />
+  <text class="entityText" x="1690" y="212" text-anchor="middle">JOB</text>
+
+  <!-- JOBSEEKER -->
+  <rect class="entity" x="860" y="980" width="260" height="84" />
+  <text class="entityText" x="990" y="1032" text-anchor="middle">JOBSEEKER</text>
+
+  <!-- APPLICATION -->
+  <rect class="entity" x="1560" y="980" width="300" height="84" />
+  <text class="entityText" x="1710" y="1032" text-anchor="middle">APPLICATION</text>
+
+  <!-- ============ RELATIONSHIPS (DIAMONDS) ============ -->
+  <!-- POSTS: EMPLOYER - JOB -->
+  <polygon class="rel" points="1310,202 1370,252 1310,302 1250,252" />
+  <text class="relText" x="1310" y="258" text-anchor="middle">POSTS</text>
+
+  <!-- RECEIVES: JOB - APPLICATION -->
+  <polygon class="rel" points="1690,542 1750,592 1690,642 1630,592" />
+  <text class="relText" x="1690" y="598" text-anchor="middle">RECEIVES</text>
+
+  <!-- SUBMITS: JOBSEEKER - APPLICATION -->
+  <polygon class="rel" points="1310,1002 1370,1052 1310,1102 1250,1052" />
+  <text class="relText" x="1310" y="1058" text-anchor="middle">SUBMITS</text>
+
+  <!-- HAS_PROFILE (logical): AUTHUSER - EMPLOYER -->
+  <polygon class="rel" points="600,305 670,365 600,425 530,365" />
+  <text class="relText" x="600" y="371" text-anchor="middle">HAS</text>
+  <text class="relText" x="600" y="392" text-anchor="middle">PROFILE</text>
+
+  <!-- HAS_PROFILE (logical): AUTHUSER - JOBSEEKER -->
+  <polygon class="rel" points="600,770 670,830 600,890 530,830" />
+  <text class="relText" x="600" y="836" text-anchor="middle">HAS</text>
+  <text class="relText" x="600" y="857" text-anchor="middle">PROFILE</text>
+
+  <!-- Notes about logical link -->
+  <text class="note" x="520" y="470">Note: profile tables are linked by email/username in code (no DB foreign key).</text>
+
+  <!-- ============ CONNECTORS + CARDINALITY ============ -->
+  <!-- EMPLOYER -- POSTS -- JOB -->
+  <line class="link" x1="1120" y1="202" x2="1250" y2="252" />
+  <line class="link" x1="1370" y1="252" x2="1560" y2="202" />
+  <text class="card" x="1188" y="224">1</text>
+  <text class="card" x="1460" y="224">N</text>
+
+  <!-- JOB -- RECEIVES -- APPLICATION -->
+  <line class="link" x1="1690" y1="244" x2="1690" y2="542" />
+  <line class="link" x1="1690" y1="642" x2="1710" y2="980" />
+  <text class="card" x="1702" y="290">1</text>
+  <text class="card" x="1722" y="930">N</text>
+
+  <!-- JOBSEEKER -- SUBMITS -- APPLICATION -->
+  <line class="link" x1="1120" y1="1022" x2="1250" y2="1052" />
+  <line class="link" x1="1370" y1="1052" x2="1560" y2="1022" />
+  <text class="card" x="1188" y="1038">1</text>
+  <text class="card" x="1460" y="1038">N</text>
+
+  <!-- AUTHUSER -- HAS_PROFILE -- EMPLOYER (dashed, logical) -->
+  <line class="linkDashed" x1="440" y1="540" x2="530" y2="365" />
+  <line class="linkDashed" x1="670" y1="365" x2="860" y2="202" />
+  <text class="card" x="468" y="514">1</text>
+  <text class="card" x="792" y="244">0..1</text>
+
+  <!-- AUTHUSER -- HAS_PROFILE -- JOBSEEKER (dashed, logical) -->
+  <line class="linkDashed" x1="440" y1="584" x2="530" y2="830" />
+  <line class="linkDashed" x1="670" y1="830" x2="860" y2="1022" />
+  <text class="card" x="468" y="640">1</text>
+  <text class="card" x="792" y="962">0..1</text>
+
+  <!-- ============ ATTRIBUTES (OVALS) ============ -->
+  <!-- AUTHUSER attributes -->
+  <ellipse class="attr" cx="290" cy="442" rx="130" ry="30" />
+  <text class="attrText pk" x="290" y="448" text-anchor="middle">id (PK)</text>
+  <line class="link" x1="290" y1="520" x2="290" y2="472" />
+
+  <ellipse class="attr" cx="520" cy="520" rx="140" ry="30" />
+  <text class="attrText" x="520" y="526" text-anchor="middle">username</text>
+  <line class="link" x1="440" y1="562" x2="400" y2="540" />
+
+  <ellipse class="attr" cx="290" cy="688" rx="140" ry="30" />
+  <text class="attrText" x="290" y="694" text-anchor="middle">password</text>
+  <line class="link" x1="290" y1="604" x2="290" y2="658" />
+
+  <ellipse class="attr" cx="520" cy="606" rx="110" ry="30" />
+  <text class="attrText" x="520" y="612" text-anchor="middle">role</text>
+  <line class="link" x1="440" y1="584" x2="410" y2="606" />
+
+  <!-- EMPLOYER attributes -->
+  <ellipse class="attr" cx="990" cy="86" rx="150" ry="30" />
+  <text class="attrText pk" x="990" y="92" text-anchor="middle">emid (PK)</text>
+  <line class="link" x1="990" y1="160" x2="990" y2="116" />
+
+  <ellipse class="attr" cx="720" cy="160" rx="170" ry="30" />
+  <text class="attrText" x="720" y="166" text-anchor="middle">empcomname</text>
+  <line class="link" x1="860" y1="202" x2="830" y2="180" />
+
+  <ellipse class="attr" cx="1260" cy="160" rx="140" ry="30" />
+  <text class="attrText" x="1260" y="166" text-anchor="middle">empLoc</text>
+  <line class="link" x1="1120" y1="202" x2="1160" y2="180" />
+
+  <ellipse class="attr" cx="990" cy="304" rx="150" ry="30" />
+  <text class="attrText" x="990" y="310" text-anchor="middle">email</text>
+  <line class="link" x1="990" y1="244" x2="990" y2="274" />
+
+  <!-- JOB attributes -->
+  <ellipse class="attr" cx="1690" cy="86" rx="150" ry="30" />
+  <text class="attrText pk" x="1690" y="92" text-anchor="middle">jobid (PK)</text>
+  <line class="link" x1="1690" y1="160" x2="1690" y2="116" />
+
+  <ellipse class="attr" cx="1415" cy="160" rx="160" ry="30" />
+  <text class="attrText" x="1415" y="166" text-anchor="middle">jobtittle</text>
+  <line class="link" x1="1560" y1="202" x2="1510" y2="182" />
+
+  <ellipse class="attr" cx="1415" cy="230" rx="160" ry="30" />
+  <text class="attrText" x="1415" y="236" text-anchor="middle">jobdes</text>
+  <line class="link" x1="1560" y1="214" x2="1510" y2="230" />
+
+  <ellipse class="attr" cx="1415" cy="300" rx="160" ry="30" />
+  <text class="attrText" x="1415" y="306" text-anchor="middle">jobskills</text>
+  <line class="link" x1="1620" y1="244" x2="1500" y2="286" />
+
+  <ellipse class="attr" cx="1965" cy="160" rx="150" ry="30" />
+  <text class="attrText" x="1965" y="166" text-anchor="middle">jobloc</text>
+  <line class="link" x1="1820" y1="202" x2="1870" y2="182" />
+
+  <ellipse class="attr" cx="1965" cy="230" rx="150" ry="30" />
+  <text class="attrText" x="1965" y="236" text-anchor="middle">jobtype</text>
+  <line class="link" x1="1820" y1="214" x2="1870" y2="230" />
+
+  <ellipse class="attr" cx="1965" cy="300" rx="150" ry="30" />
+  <text class="attrText" x="1965" y="306" text-anchor="middle">stipend</text>
+  <line class="link" x1="1760" y1="244" x2="1880" y2="286" />
+
+  <ellipse class="attr" cx="1690" cy="352" rx="160" ry="30" />
+  <text class="attrText" x="1690" y="358" text-anchor="middle">createdAt</text>
+  <line class="link" x1="1690" y1="244" x2="1690" y2="322" />
+
+  <ellipse class="attr" cx="1690" cy="422" rx="170" ry="30" />
+  <text class="attrText" x="1690" y="428" text-anchor="middle">applyDeadline</text>
+  <line class="link" x1="1690" y1="244" x2="1690" y2="392" />
+
+  <!-- JOBSEEKER attributes -->
+  <ellipse class="attr" cx="990" cy="904" rx="190" ry="30" />
+  <text class="attrText pk" x="990" y="910" text-anchor="middle">jobseekerid (PK)</text>
+  <line class="link" x1="990" y1="980" x2="990" y2="934" />
+
+  <ellipse class="attr" cx="700" cy="980" rx="190" ry="30" />
+  <text class="attrText" x="700" y="986" text-anchor="middle">jobseekername</text>
+  <line class="link" x1="860" y1="1022" x2="820" y2="1000" />
+
+  <ellipse class="attr" cx="700" cy="1050" rx="200" ry="30" />
+  <text class="attrText" x="700" y="1056" text-anchor="middle">jobseekeremail</text>
+  <line class="link" x1="860" y1="1034" x2="820" y2="1050" />
+
+  <ellipse class="attr" cx="700" cy="1120" rx="140" ry="30" />
+  <text class="attrText" x="700" y="1126" text-anchor="middle">jobexper</text>
+  <line class="link" x1="910" y1="1064" x2="780" y2="1104" />
+
+  <ellipse class="attr" cx="700" cy="1190" rx="140" ry="30" />
+  <text class="attrText" x="700" y="1196" text-anchor="middle">jobskills</text>
+  <line class="link" x1="960" y1="1064" x2="790" y2="1174" />
+
+  <ellipse class="attr" cx="1280" cy="980" rx="170" ry="30" />
+  <text class="attrText" x="1280" y="986" text-anchor="middle">resumeName</text>
+  <line class="link" x1="1120" y1="1022" x2="1165" y2="1000" />
+
+  <ellipse class="attr" cx="1280" cy="1050" rx="170" ry="30" />
+  <text class="attrText" x="1280" y="1056" text-anchor="middle">resumeType</text>
+  <line class="link" x1="1120" y1="1034" x2="1165" y2="1050" />
+
+  <ellipse class="attr" cx="1280" cy="1120" rx="170" ry="30" />
+  <text class="attrText" x="1280" y="1126" text-anchor="middle">resumeSize</text>
+  <line class="link" x1="1070" y1="1064" x2="1200" y2="1104" />
+
+  <ellipse class="attr" cx="1280" cy="1190" rx="190" ry="30" />
+  <text class="attrText" x="1280" y="1196" text-anchor="middle">resumeUpdatedAt</text>
+  <line class="link" x1="1020" y1="1064" x2="1190" y2="1174" />
+
+  <ellipse class="attr" cx="1280" cy="1260" rx="170" ry="30" />
+  <text class="attrText" x="1280" y="1266" text-anchor="middle">resumeData (LOB)</text>
+  <line class="link" x1="990" y1="1064" x2="1200" y2="1240" />
+
+  <!-- APPLICATION attributes -->
+  <ellipse class="attr" cx="1710" cy="904" rx="170" ry="30" />
+  <text class="attrText pk" x="1710" y="910" text-anchor="middle">appid (PK)</text>
+  <line class="link" x1="1710" y1="980" x2="1710" y2="934" />
+
+  <ellipse class="attr" cx="1430" cy="980" rx="160" ry="30" />
+  <text class="attrText" x="1430" y="986" text-anchor="middle">status</text>
+  <line class="link" x1="1560" y1="1022" x2="1520" y2="1000" />
+
+  <ellipse class="attr" cx="1430" cy="1050" rx="180" ry="30" />
+  <text class="attrText" x="1430" y="1056" text-anchor="middle">applicantName</text>
+  <line class="link" x1="1560" y1="1034" x2="1520" y2="1050" />
+
+  <ellipse class="attr" cx="1430" cy="1120" rx="190" ry="30" />
+  <text class="attrText" x="1430" y="1126" text-anchor="middle">applicantEmail</text>
+  <line class="link" x1="1620" y1="1064" x2="1500" y2="1104" />
+
+  <ellipse class="attr" cx="1430" cy="1190" rx="190" ry="30" />
+  <text class="attrText" x="1430" y="1196" text-anchor="middle">applicantPhone</text>
+  <line class="link" x1="1670" y1="1064" x2="1500" y2="1174" />
+
+  <ellipse class="attr" cx="2010" cy="980" rx="200" ry="30" />
+  <text class="attrText" x="2010" y="986" text-anchor="middle">applicantSkills</text>
+  <line class="link" x1="1860" y1="1022" x2="1910" y2="1000" />
+
+  <ellipse class="attr" cx="2010" cy="1050" rx="140" ry="30" />
+  <text class="attrText" x="2010" y="1056" text-anchor="middle">note</text>
+  <line class="link" x1="1860" y1="1034" x2="1910" y2="1050" />
+
+  <ellipse class="attr" cx="2010" cy="1120" rx="170" ry="30" />
+  <text class="attrText" x="2010" y="1126" text-anchor="middle">coverLetter</text>
+  <line class="link" x1="1800" y1="1064" x2="1920" y2="1104" />
+
+  <ellipse class="attr" cx="2010" cy="1190" rx="150" ry="30" />
+  <text class="attrText" x="2010" y="1196" text-anchor="middle">appliedAt</text>
+  <line class="link" x1="1750" y1="1064" x2="1920" y2="1174" />
+</svg>
+

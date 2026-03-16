@@ -1,0 +1,28 @@
+/* Profile settings */
+.sh-settings-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  flex-wrap: wrap;
+}
+
+.sh-settings-form {
+  display: grid;
+  gap: var(--sh-space-4);
+  max-width: 720px;
+}
+
+.sh-settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: var(--sh-space-2);
+}
+
+.sh-settings-status {
+  font-weight: 900;
+  color: var(--sh-success);
+}
+

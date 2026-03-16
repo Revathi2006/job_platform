@@ -1,0 +1,86 @@
+/* Register */
+.sh-register-grid {
+  display: grid;
+  grid-template-columns: min(560px, 100%);
+  gap: var(--sh-space-7);
+  align-items: start;
+  justify-content: center;
+  padding-top: var(--sh-space-8);
+}
+
+.sh-register-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.sh-register-card::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(340px 240px at 20% 20%, rgb(var(--sh-accent-rgb) / 0.14), transparent 60%),
+    radial-gradient(320px 240px at 80% 70%, rgb(var(--sh-primary-rgb) / 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.sh-register-card .sh-card-pad {
+  position: relative;
+}
+
+.sh-register-form {
+  margin-top: var(--sh-space-5);
+  display: grid;
+  gap: var(--sh-space-4);
+}
+
+.sh-register-hint {
+  margin-top: 8px;
+  color: var(--sh-muted);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.sh-register-submit {
+  width: 100%;
+  padding: 14px 16px;
+}
+
+.sh-register-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--sh-muted);
+  font-weight: 700;
+}
+
+.sh-register-aside-card {
+  background:
+    radial-gradient(420px 320px at 30% 10%, rgb(var(--sh-primary-rgb) / 0.14), transparent 60%),
+    radial-gradient(360px 280px at 85% 85%, rgb(var(--sh-accent-rgb) / 0.12), transparent 60%),
+    rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.sh-register-perks {
+  margin-top: var(--sh-space-6);
+  display: grid;
+  gap: 10px;
+}
+
+.sh-register-perk-text {
+  color: var(--sh-text-2);
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .sh-register-grid {
+    grid-template-columns: 1fr;
+    padding-top: var(--sh-space-7);
+  }
+
+  .sh-register-aside {
+    display: none;
+  }
+}

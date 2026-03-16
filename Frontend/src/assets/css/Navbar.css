@@ -1,0 +1,176 @@
+/* SmartHire navbar */
+.sh-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(10px);
+}
+
+.sh-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  gap: var(--sh-space-4);
+}
+
+.sh-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sh-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(20px 20px at 30% 30%, rgba(255, 255, 255, 0.7), transparent 60%),
+    linear-gradient(135deg, var(--sh-primary) 0%, var(--sh-primary-2) 55%, var(--sh-accent) 140%);
+  box-shadow: 0 14px 30px rgb(var(--sh-primary-rgb) / 0.25);
+  color: white;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.sh-brand-name {
+  display: grid;
+  line-height: 1.05;
+}
+
+.sh-brand-name strong {
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.sh-brand-name span {
+  font-size: 0.85rem;
+  color: var(--sh-muted);
+  font-weight: 700;
+}
+
+.sh-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sh-nav-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--sh-text-2);
+  font-weight: 800;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 999px;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, color 120ms ease;
+}
+
+.sh-nav-link:hover {
+  background: rgb(var(--sh-primary-rgb) / 0.08);
+  border-color: rgb(var(--sh-primary-rgb) / 0.18);
+  color: var(--sh-primary-ink);
+}
+
+.sh-nav-link[aria-current="page"] {
+  background: rgb(var(--sh-accent-rgb) / 0.10);
+  border-color: rgb(var(--sh-accent-rgb) / 0.22);
+  color: var(--sh-accent-ink);
+}
+
+.sh-user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.sh-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgb(var(--sh-primary-rgb) / 0.12);
+  border: 1px solid rgb(var(--sh-primary-rgb) / 0.2);
+  color: var(--sh-primary-ink);
+  font-weight: 900;
+}
+
+.sh-user-name {
+  font-weight: 900;
+  color: var(--sh-text-2);
+  font-size: 0.92rem;
+}
+
+.sh-menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+
+.sh-menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--sh-text-2);
+  border-radius: 999px;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.sh-menu-toggle[data-open="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.sh-menu-toggle[data-open="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.sh-menu-toggle[data-open="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 840px) {
+  .sh-menu-toggle {
+    display: inline-block;
+  }
+
+  .sh-nav-actions {
+    display: none;
+  }
+
+  .sh-nav-actions[data-open="true"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--sh-border);
+    border-radius: var(--sh-radius-lg);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: var(--sh-shadow-1);
+    position: absolute;
+    top: 70px;
+    right: 18px;
+    min-width: 240px;
+  }
+
+  .sh-nav-inner {
+    position: relative;
+  }
+
+  .sh-user-pill {
+    justify-content: flex-start;
+  }
+}
