@@ -1,0 +1,106 @@
+/* Upload resume */
+.sh-resume-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  flex-wrap: wrap;
+}
+
+.sh-resume-drop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-space-4);
+  padding: var(--sh-space-6);
+  border-radius: var(--sh-radius-xl);
+  border: 1px dashed rgb(var(--sh-primary-rgb) / 0.35);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.sh-resume-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  color: var(--sh-primary-ink);
+  background: rgb(var(--sh-primary-rgb) / 0.12);
+  border: 1px solid rgb(var(--sh-primary-rgb) / 0.2);
+}
+
+.sh-resume-title {
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.sh-resume-sub {
+  margin-top: 6px;
+  color: var(--sh-muted);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.sh-resume-btn {
+  position: relative;
+}
+
+.sh-resume-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sh-resume-toast {
+  margin-top: var(--sh-space-4);
+  padding: 12px 14px;
+  border-radius: var(--sh-radius-lg);
+  border: 1px solid rgba(22, 101, 52, 0.25);
+  background: rgba(22, 101, 52, 0.08);
+  color: var(--sh-success);
+  font-weight: 900;
+}
+
+.sh-resume-meta {
+  margin-top: var(--sh-space-7);
+}
+
+.sh-resume-meta-card {
+  margin-top: var(--sh-space-4);
+}
+
+.sh-resume-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.sh-resume-meta-row + .sh-resume-meta-row {
+  border-top: 1px solid var(--sh-border);
+}
+
+.sh-resume-meta-value {
+  font-weight: 900;
+  color: var(--sh-text-2);
+}
+
+.sh-resume-empty {
+  margin-top: var(--sh-space-4);
+  text-align: center;
+  padding: var(--sh-space-6);
+  border-radius: var(--sh-radius-lg);
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 720px) {
+  .sh-resume-drop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

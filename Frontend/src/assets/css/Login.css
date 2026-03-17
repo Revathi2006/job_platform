@@ -1,0 +1,144 @@
+/* Login */
+.sh-auth {
+  padding-top: var(--sh-space-8);
+}
+
+.sh-auth-grid {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: var(--sh-space-7);
+  align-items: start;
+}
+
+.sh-auth-aside {
+  padding-top: var(--sh-space-4);
+}
+
+.sh-auth-bullets {
+  margin-top: var(--sh-space-6);
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.sh-auth-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: var(--sh-radius-lg);
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.55);
+  font-weight: 800;
+  color: var(--sh-text-2);
+}
+
+.sh-auth-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.sh-auth-card::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(320px 240px at 20% 20%, rgb(var(--sh-primary-rgb) / 0.14), transparent 60%),
+    radial-gradient(320px 240px at 80% 70%, rgb(var(--sh-accent-rgb) / 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.sh-auth-card .sh-card-pad {
+  position: relative;
+}
+
+.sh-auth-head {
+  display: grid;
+  gap: 6px;
+}
+
+.sh-auth-sub {
+  margin: 0;
+  color: var(--sh-muted);
+  font-weight: 700;
+}
+
+.sh-auth-link {
+  border: 0;
+  background: transparent;
+  color: var(--sh-primary-ink);
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sh-auth-link:hover {
+  text-decoration: underline;
+}
+
+.sh-auth-role {
+  margin-top: var(--sh-space-5);
+}
+
+.sh-auth-form {
+  margin-top: var(--sh-space-5);
+  display: grid;
+  gap: var(--sh-space-4);
+}
+
+.sh-auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sh-auth-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sh-text-2);
+  font-weight: 800;
+}
+
+.sh-auth-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sh-primary);
+}
+
+.sh-auth-submit {
+  width: 100%;
+  padding: 14px 16px;
+}
+
+.sh-auth-back {
+  width: 100%;
+}
+
+.sh-auth-note {
+  margin-top: var(--sh-space-6);
+  padding: 14px 14px;
+  border-radius: var(--sh-radius-lg);
+  border: 1px solid var(--sh-border);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--sh-muted);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .sh-auth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sh-auth-aside {
+    display: none;
+  }
+
+  .sh-auth {
+    padding-top: var(--sh-space-7);
+  }
+}
